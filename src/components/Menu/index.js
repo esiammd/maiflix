@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import { LogoImage, MenuWrapper } from "./style.js";
 import { Button } from "../Button";
 
@@ -8,11 +8,11 @@ import Logo from "../../assets/logo.png";
 const Menu = () => {
   return (
     <MenuWrapper>
-      <a href="/">
+      <Link to="/">
         <LogoImage src={Logo} alt="MaiFlix logo" />
-      </a>
+      </Link>
 
-      <Button as="a" href="/">
+      <Button as={Link} to="/cadastro/video">
         Novo vídeo
       </Button>
     </MenuWrapper>

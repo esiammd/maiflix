@@ -39,17 +39,3 @@ export const ExtraLink = styled.a`
     margin-left: 0;
   }
 `;
-
-export const VideoCardList = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-  padding-bottom: 32px;
-  display: flex;
-  overflow-x: auto;
-  flex-direction: row;
-
-  li {
-    margin-right: 16px;
-  }
-`;

@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const BannerMainContainer = styled.section`
   height: 80vh;
   position: relative;
-  color: #fff;
   background-image: ${({ backgroundImage }) => `url(${backgroundImage})`};
   background-size: cover;
   background-position: center;
