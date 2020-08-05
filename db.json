@@ -1,0 +1,10 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Categoria Teste",
+      "descricao": "Categoria Teste do JSON Server",
+      "cor": "#cbs1fdf"
+    }
+  ]
+}

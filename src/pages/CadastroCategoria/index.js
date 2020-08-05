@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import PageDefault from "../../components/PageDefault";
 import FormField from "../../components/FormField";
+import { Button } from "../../components/Button";
 
 const CadastroCategoria = () => {
   const [categorias, setCategorias] = useState([]);
@@ -26,6 +27,14 @@ const CadastroCategoria = () => {
   function handleChange(event) {
     handleValue(event.target.getAttribute("name"), event.target.value);
   }
+
+  useEffect(() => {
+    const URL = "http://localhost:8080/categorias";
+    fetch(URL).then(async (respostaDoServidor) => {
+      const resposta = await respostaDoServidor.json();
+      setCategorias([...resposta]);
+    });
+  }, []);
 
   return (
     <PageDefault>
@@ -59,7 +68,7 @@ const CadastroCategoria = () => {
           value={valores.cor}
           onChange={handleChange}
         />
-        <button>Cadastrar</button>
+        <Button>Cadastrar</Button>
       </form>
 
       <ul>
