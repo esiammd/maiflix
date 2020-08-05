@@ -29,7 +29,9 @@ const CadastroCategoria = () => {
   }
 
   useEffect(() => {
-    const URL = "http://localhost:8080/categorias";
+    const URL = window.location.hostname.includes("localhost")
+      ? "http://localhost:8080/categorias"
+      : "https://maiflix.herokuapp.com/categorias";
     fetch(URL).then(async (respostaDoServidor) => {
       const resposta = await respostaDoServidor.json();
       setCategorias([...resposta]);
@@ -70,6 +72,8 @@ const CadastroCategoria = () => {
         />
         <Button>Cadastrar</Button>
       </form>
+
+      {categorias.length === 0 && <div>Carregando...</div>}
 
       <ul>
         {categorias.map((categoria, indice) => {
