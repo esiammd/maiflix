@@ -5,34 +5,21 @@ import PageDefault from "../../components/PageDefault";
 import FormField from "../../components/FormField";
 import { Button } from "../../components/Button";
 
-const CadastroCategoria = () => {
-  const [categorias, setCategorias] = useState([]);
+import useForm from "../../hooks/useForm";
+import URL_BACKEND from "../../config";
 
+const CadastroCategoria = () => {
   const valoresIniciais = {
-    nome: "",
+    titulo: "",
     descricao: "",
     cor: "",
   };
 
-  const [valores, setValores] = useState(valoresIniciais);
-
-  function handleValue(chave, valor) {
-    //chave: nome, descricao, cor
-    setValores({
-      ...valores,
-      [chave]: valor,
-    });
-  }
-
-  function handleChange(event) {
-    handleValue(event.target.getAttribute("name"), event.target.value);
-  }
+  const { valores, handleChange, clearForm } = useForm(valoresIniciais);
+  const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
-    const URL = window.location.hostname.includes("localhost")
-      ? "http://localhost:8080/categorias"
-      : "https://maiflix.herokuapp.com/categorias";
-    fetch(URL).then(async (respostaDoServidor) => {
+    fetch(`${URL_BACKEND}/categorias`).then(async (respostaDoServidor) => {
       const resposta = await respostaDoServidor.json();
       setCategorias([...resposta]);
     });
@@ -46,14 +33,14 @@ const CadastroCategoria = () => {
         onSubmit={(event) => {
           event.preventDefault();
           setCategorias([...categorias, valores]);
-          setValores(valoresIniciais);
+          clearForm(valoresIniciais);
         }}
       >
         <FormField
-          label="Nome da Categoria"
+          label="Titulo da Categoria"
           type="text"
-          name="nome"
-          value={valores.nome}
+          name="titulo"
+          value={valores.titulo}
           onChange={handleChange}
         />
         <FormField
@@ -77,7 +64,7 @@ const CadastroCategoria = () => {
 
       <ul>
         {categorias.map((categoria, indice) => {
-          return <li key={`${categoria}${indice}`}>{categoria.nome}</li>;
+          return <li key={categoria.titulo}>{categoria.titulo}</li>;
         })}
       </ul>
 
