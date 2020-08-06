@@ -57,7 +57,7 @@ const CadastroCategoria = () => {
           value={valores.cor}
           onChange={handleChange}
         />
-        <Button>Cadastrar</Button>
+        <Button type="submit">Cadastrar</Button>
       </form>
 
       {categorias.length === 0 && <div>Carregando...</div>}

@@ -93,7 +93,6 @@
       "titulo": "Base para aprender os frameworks",
       "url": "https://www.youtube.com/watch?v=QzDjdlF1BQI"
     },
-
     {
       "id": 9,
       "categoriaId": 2,
@@ -237,6 +236,12 @@
       "categoriaId": 6,
       "titulo": "Young Sheldon",
       "url": "https://www.youtube.com/watch?v=e9lAWW-CQUE"
+    },
+    {
+      "titulo": "Guitarricadelafuente - Agua y Mezcal ",
+      "url": "https://www.youtube.com/watch?v=ri02p05A25c",
+      "categoriaId": 4,
+      "id": 33
     }
   ]
 }

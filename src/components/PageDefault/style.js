@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerHome = styled.div`
-  background-color: var(--grayDark);
+  background-color: var(--black);
   color: var(--white);
   flex: 1;
   padding-top: 94px;
@@ -12,7 +12,7 @@ export const ContainerHome = styled.div`
 `;
 
 export const ContainerBase = styled.div`
-  background-color: var(--grayDark);
+  background-color: var(--black);
   color: var(--white);
   flex: 1;
   padding-top: 94px;

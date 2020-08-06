@@ -4,13 +4,13 @@ import PageDefault from "../../components/PageDefault";
 import BannerMain from "../../components/BannerMain";
 import Carousel from "../../components/Carousel";
 
-import categoriesRepository from "../../repositories/categories";
+import categoriasRepository from "../../repositories/categorias";
 
 function Home() {
   const [dadosIniciais, setDadosIniciais] = useState([]);
 
   useEffect(() => {
-    categoriesRepository
+    categoriasRepository
       .getAllWithVideos()
       .then((categoriasComVideos) => {
         setDadosIniciais(categoriasComVideos);
